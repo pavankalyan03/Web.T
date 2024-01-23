@@ -12,7 +12,8 @@ c) Publisher. d) Price. e) Add to cart button.
 3 Design a timetable schedule for your current semester using the Table tag.
 
 
-4 Design a HTML page for Student Registration Form using Form ElementsthatincludesForm,input-text,password,radio,checkbox,hidden,button,submit,reset,label,textarea,select,option and file 
+4 Design a HTML page for Student Registration Form using Form ElementsthatincludesForm,input-text,
+password,radio,checkbox,hidden,button,submit,reset,label,textarea,select,option and file 
 upload.
 
 

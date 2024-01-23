@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Operations</title>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='bg.css'> -->
+
+    <style>
+
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gradient-background {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(261deg,#854347,#d662d7,#1b8ef0,#12ac6b);
+            background-size: 240% 240%;
+            animation: gradient-animation 16s ease infinite;
+            mix-blend-mode: lighten;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradient-animation {
+            0% {
+            background-position: 0% 50%;
+            }
+            50% {
+            background-position: 100% 50%;
+            }
+            100% {
+            background-position: 0% 50%;
+            }
+        }
+
+        
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+
+        #history {
+            flex-grow: 1;
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+
+
+    <script>
+        var calculationHistory = [];
+
+        function calculateFactorial() {
+            performCalculation('Factorial');
+        }
+
+        function calculateFibonacci() {
+            performCalculation('Fibonacci');
+        }
+
+        function calculatePrimes() {
+            performCalculation('Prime');
+        }
+
+        function calculatePalindrome() {
+            performCalculation('Palindrome');
+        }
+
+        function performCalculation(operation) {
+            var number = document.getElementById('inputNumber').value;
+            var result;
+
+            switch (operation) {
+                case 'Factorial':
+                    result = calculateFactorialValue(number);
+                    break;
+                case 'Fibonacci':
+                    result = calculateFibonacciSeries(number);
+                    break;
+                case 'Prime':
+                    result = calculatePrimeNumbers(number);
+                    break;
+                case 'Palindrome':
+                    result = checkPalindrome(number);
+                    break;
+            }
+
+            var historyItem = operation + ' of ' + number + ': ' + result;
+
+            if (!isInHistory(historyItem)) {
+                calculationHistory.push(historyItem);
+                displayHistory();
+            }
+        }
+
+        function isInHistory(item) {
+            var lastCalculation = calculationHistory[calculationHistory.length - 1];
+            return item === lastCalculation;
+            // return calculationHistory.includes(item);
+            
+        }
+
+        function calculateFactorialValue(num) {
+            var result = 1;
+            for (var i = 1; i <= num; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        function calculateFibonacciSeries(num) {
+            var series = [0, 1];
+            for (var i = 2; i <= num; i++) {
+                series[i] = series[i - 1] + series[i - 2];
+            }
+            return series.join(', ');
+        }
+
+        function calculatePrimeNumbers(num) {
+            var primes = [];
+            for (var i = 2; i <= num; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            return primes.join(', ');
+        }
+
+        function isPrime(num) {
+            for (var i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return num > 1;
+        }
+
+        function checkPalindrome(str) {
+            var reversedString = str.split('').reverse().join('');
+            return str === reversedString ? 'Yes' : 'No';
+        }
+
+        function displayHistory() {
+            var historyContainer = document.getElementById('history');
+            historyContainer.innerHTML = '<h2>Calculation History</h2>';
+            
+            for (var i = 0; i < calculationHistory.length; i++) {
+                var historyItem = document.createElement('p');
+                historyItem.textContent = calculationHistory[i];
+                historyContainer.appendChild(historyItem);
+            }
+        }
+    </script>
+</head>
+
+
+    <body>
+        <div class = gradient-background>
+        
+            <h1>Number Operations</h1>
+            <label for="inputNumber">Enter a Number:</label>
+            <input type="text" id="inputNumber" />
+
+            <br/><br/>
+
+            <button onclick="calculateFactorial()">Factorial</button>
+            <button onclick="calculateFibonacci()">Fibonacci</button>
+            <button onclick="calculatePrimes()">Prime</button>
+            <button onclick="calculatePalindrome()">Palindrome</button>
+
+            <br/><br/>
+
+            <div id="history"></div>
+
+        </div>  
+
+    </body>
+</html>
