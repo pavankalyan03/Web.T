@@ -1,0 +1,66 @@
+1 Design a webpage having four frames named a)Top, b)Center, c)Bottom, and d) Left. The top 
+frame should contain the company logo and title. The bottom frame should contain copyright 
+information. The left frame should contain various links like Home, Products, Services, Branches, 
+About, etc., When clicked on respective links, the content should display on the center frame.
+
+
+2 Design a catalog page that should contain the details of all the books available on the website 
+in a table. The details should contain the following: a) Snapshot of Cover Page b) Author Name 
+c) Publisher. d) Price. e) Add to cart button.
+
+
+3 Design a timetable schedule for your current semester using the Table tag.
+
+
+4 Design a HTML page for Student Registration Form using Form ElementsthatincludesForm,input-text,password,radio,checkbox,hidden,button,submit,reset,label,textarea,select,option and file 
+upload.
+
+
+5 Design a HTML web page with at least two <h1>, two images, two buttons, and appropriate CSS to display,
+All<h1>withfont-size12pt, and bold in Verdana font using In line CSS.
+All<img>withbordercoloryellow,thickness10pxusingDocumentLevelCSS.
+All<inputtype=’button’>should change background color to red on mouse over them using External CSS.
+
+
+6 Design a HTML page having a text box and four buttons viz Factorial, Fibonacci, Prime and 
+Palindrome. When a button is pressed an appropriate java script function should be called to 
+display the following:
+Factorial of that number.
+Fibonacci series up to that number.
+Prime numbers up to that number.
+Is it palindrome or not?
+
+
+7 Design a web page that contains a color pallet, when the user moves the mouse to the particular 
+area, then it changes the background color of the web page.
+
+
+8 Design a registration page to validate the following fields using Java Script.
+Make sure the user name starts with an upper case letter.
+The user name must have at least one digit.
+Ensure that Email is valid.
+Ensure that the password length is between 8 to 20 characters.
+Make sure the password contains at least one upper case letter, one lower case, and one 
+special character exclude [. (dot), ,(comma), ;(semicolon), : (colon)].
+
+
+9 Design a web page to display the videos on-page, on user selection using frames and HTML5 
+tags.
+
+
+10 Design a web page to display different types of objects using HTML5 Canvas.
+
+
+11 Design a web application to validate entered username and password through JDBC connection 
+program and display user information on successful login and provide profile editing option to 
+the user. Else display an error message.
+
+
+12 Develop a JSP application to create a user on successful signup and update user information on 
+successful login and display user information on the home screen and provide a logout button.
+
+
+13 Make an HTML form that collects the last name. Send the name to JSP page. If there is an 
+employee with that last name, show full details of him or her (just show the first employee if 
+there are multiple people with the same name). If there is no employee with that last name, 
+say “no employee records available.”

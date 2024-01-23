@@ -1,0 +1,70 @@
+exp7
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+            text-align: center;
+        }
+
+        .color-container {
+            margin-top: 20px;
+        }
+
+        .color-box {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #bd3232;
+            position: relative;
+        }
+
+        .color-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            font-size: 12px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Move your mouse over the color boxes to change the background color!</h2>
+
+    <div class="color-container">
+        <div class="color-box" onmouseover="changeBackgroundColor('red')" onmouseout="changeBackgroundColor('white')" title="Red">
+            <!-- <span class="color-name" style="background-color: red;">Red</span> -->
+            <button class="color-name" style="background-color: red;">RED</button>
+        </div>
+        <div class="color-box" onmouseover="changeBackgroundColor('blue')" onmouseout="changeBackgroundColor('white')" title="Blue">
+            <span class="color-name" style="background-color: blue;">Blue</span>
+        </div>
+        <div class="color-box" onmouseover="changeBackgroundColor('green')" onmouseout="changeBackgroundColor('white')" title="Green">
+            <span class="color-name" style="background-color: green;">Green</span>
+        </div>
+        <div class="color-box" onmouseover="changeBackgroundColor('yellow')" onmouseout="changeBackgroundColor('white')" title="Yellow">
+            <span class="color-name" style="background-color: yellow;">Yellow</span>
+        </div>
+        <div class="color-box" onmouseover="changeBackgroundColor('purple')" onmouseout="changeBackgroundColor('white')" title="Purple">
+            <span class="color-name" style="background-color: purple;">Purple</span>
+        </div>
+    </div>
+
+    <script>
+        function changeBackgroundColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>
