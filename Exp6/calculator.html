@@ -12,7 +12,6 @@
             display: flex;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
-            background-color: white;
         }
 
         #left-side {
@@ -31,17 +30,15 @@
             background-color: white;
     
         }
+        .box{
+            background-color: white;
+            margin-top: 50%;
+            border: 3px solid;
+            padding: 3px;
+        }
 
-        @keyframes gradient-animation {
-            0% {
-            background-position: 0% 50%;
-            }
-            50% {
-            background-position: 100% 50%;
-            }
-            100% {
-            background-position: 0% 50%;
-            }
+        .back{
+            background-color: black;
         }
 
         h1 {
@@ -169,30 +166,36 @@
             }
         }
 
-</script>
+    </script>
 </head>
 
 
-    <body>
-        <div id="left-side">
+<body>
+    <div id="left-side">
+        <div class="box">
             <h1>Number Operations</h1>
             <label for="inputNumber">Enter a Number:</label>
             <input type="text" id="inputNumber" />
-    
+
             <br/><br/>
-    
+
             <button onclick="calculateFactorial()">Factorial</button>
             <button onclick="calculateFibonacci()">Fibonacci</button>
             <button onclick="calculatePrimes()">Prime</button>
             <button onclick="calculatePalindrome()">Palindrome</button>
         </div>
-    
-        <div id="right-side">
+        
+        
+    </div>
+
+    <div id="right-side">
+        <div class="box"> 
             <div id="history">
                 <h2>Calculation History</h2>
                 <!-- Calculation history will be displayed here -->
             </div>
-        </div>  
-
-    </body>
+        </div>
+        
+    </div>  
+</body>
 </html>
