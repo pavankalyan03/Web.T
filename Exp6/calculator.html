@@ -5,31 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Operations</title>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='bg.css'> -->
-
     <style>
 
         body {
             margin: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
-            position: relative;
+            background-color: white;
         }
 
-        .gradient-background {
-            text-align: center;
+        #left-side {
+            flex: 1;
             padding: 20px;
-            background: linear-gradient(261deg,#854347,#d662d7,#1b8ef0,#12ac6b);
-            background-size: 240% 240%;
-            animation: gradient-animation 16s ease infinite;
-            mix-blend-mode: lighten;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
+
+        #right-side {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+    
+        }
+
         @keyframes gradient-animation {
             0% {
             background-position: 0% 50%;
@@ -41,8 +43,6 @@
             background-position: 0% 50%;
             }
         }
-
-        
 
         h1 {
             margin-top: 0;
@@ -59,19 +59,18 @@
         }
 
         button {
-            margin-right: 10px;
+            margin-bottom: 10px;
+            width: 80px;
         }
 
         #history {
-            flex-grow: 1;
             text-align: left;
-            padding-left: 20px;
         }
     </style>
 
 
     <script>
-        var calculationHistory = [];
+        var calculationHistory = {};
 
         function calculateFactorial() {
             performCalculation('Factorial');
@@ -110,17 +109,13 @@
 
             var historyItem = operation + ' of ' + number + ': ' + result;
 
-            if (!isInHistory(historyItem)) {
-                calculationHistory.push(historyItem);
+            if (!calculationHistory[operation]) {
+                calculationHistory[operation] = historyItem;
+                displayHistory();
+            } else if (calculationHistory[operation] !== historyItem) {
+                calculationHistory[operation] = historyItem;
                 displayHistory();
             }
-        }
-
-        function isInHistory(item) {
-            var lastCalculation = calculationHistory[calculationHistory.length - 1];
-            return item === lastCalculation;
-            // return calculationHistory.includes(item);
-            
         }
 
         function calculateFactorialValue(num) {
@@ -136,7 +131,7 @@
             for (var i = 2; i <= num; i++) {
                 series[i] = series[i - 1] + series[i - 2];
             }
-            return series.join(', ');
+            return series.slice(0, num + 1).join(', ');
         }
 
         function calculatePrimeNumbers(num) {
@@ -166,35 +161,37 @@
         function displayHistory() {
             var historyContainer = document.getElementById('history');
             historyContainer.innerHTML = '<h2>Calculation History</h2>';
-            
-            for (var i = 0; i < calculationHistory.length; i++) {
+
+            for (var key in calculationHistory) {
                 var historyItem = document.createElement('p');
-                historyItem.textContent = calculationHistory[i];
+                historyItem.textContent = calculationHistory[key];
                 historyContainer.appendChild(historyItem);
             }
         }
-    </script>
+
+</script>
 </head>
 
 
     <body>
-        <div class = gradient-background>
-        
+        <div id="left-side">
             <h1>Number Operations</h1>
             <label for="inputNumber">Enter a Number:</label>
             <input type="text" id="inputNumber" />
-
+    
             <br/><br/>
-
+    
             <button onclick="calculateFactorial()">Factorial</button>
             <button onclick="calculateFibonacci()">Fibonacci</button>
             <button onclick="calculatePrimes()">Prime</button>
             <button onclick="calculatePalindrome()">Palindrome</button>
-
-            <br/><br/>
-
-            <div id="history"></div>
-
+        </div>
+    
+        <div id="right-side">
+            <div id="history">
+                <h2>Calculation History</h2>
+                <!-- Calculation history will be displayed here -->
+            </div>
         </div>  
 
     </body>
