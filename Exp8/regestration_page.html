@@ -6,6 +6,8 @@
     <title>Registration Page</title>
     <style>
         body {
+            background-image: url('mnt.jpg');
+            background-size: cover;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -17,7 +19,7 @@
         }
 
         form {
-            background-color: #002fff;
+            background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -46,6 +48,7 @@
     </style>
 </head>
 <body>
+    <div>
     <form id="registrationForm" onsubmit="validateForm(event)">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -58,7 +61,7 @@
 
         <button type="submit">Register</button>
     </form>
-
+</div>
     <script>
         function validateForm(event) {
             event.preventDefault();
